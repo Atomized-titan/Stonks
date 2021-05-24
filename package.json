@@ -4,6 +4,7 @@
   "description": "A CRUD starter template for a Discord bot built with **discord-akario**. Dependencies may be out of date and will need updated.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
