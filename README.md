@@ -1,4 +1,4 @@
-Stonks
+# Stonks
 
 
 [![Discord Bots](https://discordbotslist.co/api/embed/844842149006802944)](https://discordbotslist.co/bots/844842149006802944)
