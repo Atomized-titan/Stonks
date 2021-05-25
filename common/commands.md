@@ -44,7 +44,9 @@ Shows the current Ethereum gas prices required to send a transaction (shows the 
 + `.s ego`: Boosts your ego
 + `.s ping`: it will reply to you and show the current response ping.
 + `.s help`: Lists out all commands
++ `.s docs`: DM's the command list to the caller
 + `.s help <command>`: Help on a specific command
+
 
 ---
 
