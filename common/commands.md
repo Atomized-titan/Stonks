@@ -46,6 +46,8 @@ Shows the current Ethereum gas prices required to send a transaction (shows the 
 + `.s help`: Lists out all commands
 + `.s docs`: DM's the command list to the caller
 + `.s help <command>`: Help on a specific command
++ `.s id`: Get your unique Discord ID number DM'd to you
++ `.s fg`: Get the current Bitcoin fear/greed index value
 
 
 ---
