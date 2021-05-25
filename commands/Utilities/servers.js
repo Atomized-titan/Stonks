@@ -7,7 +7,7 @@ class ServersCommand extends Command {
         super('servers', {
             aliases: ['servers', 'servrs'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Developer Commands',
             description: {
                 content: 'This provides the number of servers the bot is a part of and ho many members are there in it'
             }

@@ -67,6 +67,7 @@ class PriceCommand extends Command {
                 .addField("Last: ", ` ₹ ${last}\n \u200B\u200B`, true)
                 .addField("Vol: ", ` ₹ ${vol}\n \u200B\u200B`, true)
                 .addField("At: ", ` ${at}\n \u200B\u200B`, true)
+                .setColor('#3067F0')
                 .setFooter('Powered by WazirX', 'https://wazirx.com/static/media/wazirx-logo-rounded.9bff9f42.png');
 
             try {
