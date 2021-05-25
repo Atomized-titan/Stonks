@@ -8,7 +8,7 @@ var S = require('string');
 
 
 
-class PriceCommand extends Command {
+class InfoCommand extends Command {
     constructor() {
         super('info', {
             aliases: ['info', 'i'],
@@ -134,5 +134,5 @@ class PriceCommand extends Command {
 
 }
 
-module.exports = PriceCommand;
+module.exports = InfoCommand;
 

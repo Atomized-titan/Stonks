@@ -20,7 +20,7 @@
 + ETH gas fees tracking
 + ....and more! Join the support server to suggest features you want to see. We are listening!
 
-ETH & ERC20 donations to: `0x161e9a11de8262f4fba8cb1faf479910d5abf3fd` are greatly appreciated and help support future development!
+ETH donations to: `0x161e9a11de8262f4fba8cb1faf479910d5abf3fd` are greatly appreciated and help support future development!
 <br><br>
 
 ---
