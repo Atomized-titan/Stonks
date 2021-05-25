@@ -5,7 +5,7 @@ class EgoCommand extends Command {
         super('ego', {
             aliases: ['ego', 'egi'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Public Commands',
             description: {
                 content: 'This boosts your ego'
             }

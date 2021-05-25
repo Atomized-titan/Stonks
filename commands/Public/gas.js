@@ -8,7 +8,7 @@ class GasCommand extends Command {
         super('gas', {
             aliases: ['gas', 'g'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Public Commands',
             description: {
                 content: 'Etheruem Gas Tracker'
             },

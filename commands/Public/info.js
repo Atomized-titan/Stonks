@@ -13,7 +13,7 @@ class InfoCommand extends Command {
         super('info', {
             aliases: ['info', 'i'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Public Commands',
             description: {
                 content: 'This provides the description/purpose of a specific coin'
             },

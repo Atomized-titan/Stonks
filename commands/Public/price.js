@@ -8,7 +8,7 @@ class PriceCommand extends Command {
         super('price', {
             aliases: ['price', 'p'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Public Commands',
             description: {
                 content: 'This provides the price and other details of a specific coin'
             },

@@ -10,7 +10,7 @@ class McCommand extends Command {
         super('marketcap', {
             aliases: ['marketcap', 'mc'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Public Commands',
             description: {
                 content: 'This provides the Market Cap of a specific coin'
             },

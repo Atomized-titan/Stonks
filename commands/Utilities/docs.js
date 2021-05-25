@@ -5,7 +5,7 @@ class DocsCommand extends Command {
         super('docs', {
             aliases: ['docs', 'doc'],
             channel: 'guild',
-            category: 'Public Commands',
+            category: 'Utilities',
             description: {
                 content: 'This provides the link to the fancy help document that lists every command and how to use them'
             },

@@ -17,7 +17,7 @@ class HelpCommand extends Command {
             description: {
                 content: 'Displays information about a command',
                 usage: '[command]',
-                examples: ['cat']  
+                examples: ['cat']
             }
         });
     }
@@ -33,12 +33,12 @@ class HelpCommand extends Command {
                     '❯ Description:',
                     command.description.content || 'No Description provided'
                 )
-		.addField(
+                .addField(
                     '❯ Usage:',
                     `\`${command.aliases[0]} ${command.description.usage ? command.description.usage : ''
                     }\``
                 );
-		
+
             if (command.aliases.length > 1) {
                 embed.addField('❯ Aliases Available:', `\`${command.aliases.join('`, `')}\``);
             }
@@ -60,7 +60,7 @@ class HelpCommand extends Command {
                     The prefix for ${this.client.user.username} is \`.s\``
                 )
                 .setFooter(
-                    'For more info on a command, use ..help <command>',
+                    'For more info on a command, use .s help <command>',
                     this.client.user.displayAvatarURL()
                 );
 
@@ -72,11 +72,11 @@ class HelpCommand extends Command {
                         .filter((cmd) => cmd.aliases.length > 0)
                         .map((cmd) => `\`${cmd.aliases[0]}\``)
                         .join(' , ')}`
-                );    
+                );
             }
-            // embed.addField(`__Quick Links__`, [
-            //     `[ACP github](https://github.com/-Cat-Productions/) | [ACP Discord Server](https://discord.gg/275fZRxw9m)`
-            // ]);
+            embed.addField(`__Nexus__`, [
+                `[Invite me](https://discord.com/api/oauth2/authorize?client_id=844842149006802944&permissions=2013592656&redirect_uri=http%3A%2F%2Flocalhost%3A5000&scope=bot) | [Discord Server](https://discord.gg/MmApFPjb7K) | [Stonks Github](https://github.com/Atomized-titan/Stonks)`
+            ]);
 
         }
 

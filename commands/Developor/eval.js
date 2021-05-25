@@ -20,7 +20,7 @@ class EvalCommand extends Command {
 
     async exec(message, { code }) {
 
-        if(!message.member.hasPermission(`${ownerID}`)) return message.util.reply('Only The oLoGYyVidss Owners have Access to This Command!')
+        if(!message.member.hasPermission(`${ownerID}`)) return message.util.reply('Only The Stonks Owners have Access to This Command!')
         
         if (!code) return message.util.reply('No code provided!');
 
