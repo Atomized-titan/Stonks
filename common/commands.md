@@ -51,7 +51,12 @@ Get the current Bitcoin fear/greed index value
 + `.s help`: Lists out all commands
 + `.s docs`: DM's the command list to the caller
 + `.s help <command>`: Help on a specific command
+<br>
 
+## More of a visual learner? Check out these demonstration screenshots:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/HEwdTsn"><a href="//imgur.com/a/HEwdTsn">Stonks Demo</a></blockquote>
+<br><br>
 
 ---
 
