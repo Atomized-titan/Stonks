@@ -48,8 +48,9 @@ Get the current Bitcoin fear/greed index value
 + `.s ego`: Boosts your ego
 + `.s id`: Get your unique Discord ID number DM'd to you
 + `.s ping`: it will reply to you and show the current response ping.
-+ `.s help`: Lists out all commands
 + `.s docs`: DM's the command list to the caller
++ `.s invite`: Get a pre-permissioned link to add Stonks to your own server!
++ `.s help`: Lists out all commands
 + `.s help <command>`: Help on a specific command
 
 

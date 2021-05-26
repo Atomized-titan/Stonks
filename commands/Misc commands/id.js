@@ -7,12 +7,12 @@ const chalk   = require('chalk');
 
 class GasCommand extends Command {
     constructor() {
-        super('d', {
+        super('id', {
             aliases: ['id'],
             channel: 'guild',
             category: 'Misc Commands',
             description: {
-                content: 'Etheruem Gas Tracker'
+                content: "Get your unique Discord ID number DM'd to you"
             }
         });
     }

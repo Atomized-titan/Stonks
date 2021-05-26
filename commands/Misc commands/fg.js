@@ -9,9 +9,9 @@ class FgCommand extends Command {
         super('fg', {
             aliases: ['fg', 'feargreed, fear/greed'],
             channel: 'guild',
-            category: 'Misc Commands',
+            category: 'Public Commands',
             description: {
-                content: 'This provides the ping of the bot.'
+                content: 'Get the current Bitcoin fear and greed index value'
             }
         });
     }
