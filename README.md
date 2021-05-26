@@ -18,6 +18,7 @@
 + Coin market stats
 + Coin info and descriptions
 + ETH gas fees tracking
++ Current bitcoin Fear/Greed Index value
 + ....and more! Join the support server to suggest features you want to see. We are listening!
 
 ETH donations to: `0x161e9a11de8262f4fba8cb1faf479910d5abf3fd` are greatly appreciated and help support future development!

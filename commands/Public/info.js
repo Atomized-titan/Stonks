@@ -3,6 +3,7 @@ const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const chalk   = require('chalk');
 var S = require('string');
 
 
@@ -28,6 +29,7 @@ class InfoCommand extends Command {
 
     async exec(message, args) {
 
+        console.log(chalk.green("Coin description requested by " + chalk.yellow(message.author.username) + " for " + chalk.cyan(args.coin)));
         const getInfo = async () => {
             const result = await fetch(`https://api.coingecko.com/api/v3/coins/${args.coin}`)
             const json = await result.json()

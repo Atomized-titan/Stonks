@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
+const chalk   = require('chalk');
+
 
 
 class PriceCommand extends Command {
@@ -24,6 +26,8 @@ class PriceCommand extends Command {
 
     async exec(message, args) {
 
+        console.log(chalk.green("WazirX prices were requested by " + chalk.yellow(message.author.username)+ " for " + chalk.cyan(args.coin) + " in " + chalk.magentaBright(message.channel.guild.name)));
+
         const getPrice = async () => {
             console.log(args.coin)
             const result = await fetch(`https://api.wazirx.com/api/v2/tickers/${args.coin}`)
@@ -32,7 +36,7 @@ class PriceCommand extends Command {
         }
         let com = await getPrice()
         
-        console.log(com)
+        // console.log(com)
         const stamp = new Date(com.at * 1000);
         const time = stamp.toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
         console.log(time)

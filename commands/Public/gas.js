@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
+const chalk = require('chalk');
+
 
 
 class GasCommand extends Command {
@@ -21,6 +23,8 @@ class GasCommand extends Command {
     }
 
     async exec(message) {
+
+        console.log(chalk.green("Ethereum gas rates requested by  " + chalk.yellow(message.author.username) + " in " + chalk.magentaBright(message.channel.guild.name)));
         const getGas = async () => {
 
             const result = await fetch(`https://www.gasnow.org/api/v3/gas/price`)

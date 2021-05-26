@@ -9,7 +9,7 @@ class FgCommand extends Command {
         super('fg', {
             aliases: ['fg', 'feargreed, fear/greed'],
             channel: 'guild',
-            category: 'Utilities',
+            category: 'Misc Commands',
             description: {
                 content: 'This provides the ping of the bot.'
             }
