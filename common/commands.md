@@ -38,16 +38,19 @@ Super cool!
 #### Usage: `.s gas`
 Shows the current Ethereum gas prices required to send a transaction (shows the current slow price, standard price, and fast price)
 
-## Other fun commands:
+### Bitcoin Fear/Greed Index value:
+#### Usage: `.s fg`
+Get the current Bitcoin fear/greed index value
+
+## Other important commands:
 #### Usage: `.s <command>`
 
 + `.s ego`: Boosts your ego
++ `.s id`: Get your unique Discord ID number DM'd to you
 + `.s ping`: it will reply to you and show the current response ping.
 + `.s help`: Lists out all commands
 + `.s docs`: DM's the command list to the caller
 + `.s help <command>`: Help on a specific command
-+ `.s id`: Get your unique Discord ID number DM'd to you
-+ `.s fg`: Get the current Bitcoin fear/greed index value
 
 
 ---
