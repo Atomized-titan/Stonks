@@ -22,6 +22,7 @@
 + ....and more! Join the support server to suggest features you want to see. We are listening!
 
 <br>
+
 ## More of a visual learner? Check out these demonstration screenshots:
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/HEwdTsn"><a href="//imgur.com/a/HEwdTsn">Stonks Demo</a></blockquote>
