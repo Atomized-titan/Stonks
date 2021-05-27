@@ -1,6 +1,7 @@
 const { stripIndents } = require('common-tags');
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
+const e = require('express');
 
 class HelpCommand extends Command {
     constructor() {
@@ -57,7 +58,8 @@ class HelpCommand extends Command {
                 .setDescription(
                     stripIndents`
                     These are the available commands to use in \`${message.guild.name}\`,
-                    The prefix for ${this.client.user.username} is \`.s\``
+                    The prefix for ${this.client.user.username} is \`.s\`
+                    The commands usage is generally \`.s <command> <parameter>\``
                 )
                 .setFooter(
                     'For more info on a command, use .s help <command>',
@@ -77,6 +79,7 @@ class HelpCommand extends Command {
             embed.addField(`__Nexus__`, [
                 `[Invite me](https://discord.com/api/oauth2/authorize?client_id=844842149006802944&permissions=2013592656&redirect_uri=http%3A%2F%2Flocalhost%3A5000&scope=bot) | [Discord Server](https://discord.gg/MmApFPjb7K) | [Stonks Github](https://github.com/Atomized-titan/Stonks)`
             ]);
+            // embed.addField(`\`Notice:\` The \`mc\` command has been fixed! try it`)
 
         }
 

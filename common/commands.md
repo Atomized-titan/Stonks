@@ -34,6 +34,19 @@ Examples:
 
 Super cool!
 
+## Market cap of a specific coin:
+#### Usage: `.s mc <coin>` (any coin)
+This provides the Market cap, supply, and volume data for the provided coin.
+In this case you can provide the full name, ticker symbol or the rank of the coin you are searching for. For example, Ethereum has the ticker name ethereum, and Bitcoin has the ticker symbol btc, a rank, and so on..<br>
+
+Examples:
++ `.s mc ethereum` : Market Cap of Ethereum in USDT
++ `.s mc xrp` : Market Cap of XRP in USDT<br>
++ `.s mc 5` : Market Cap of the 5th ranking coin in USDT<br>
+
+Now you have a lot of data on a single coin!
+
+
 ### ETH Gas prices:
 #### Usage: `.s gas`
 Shows the current Ethereum gas prices required to send a transaction (shows the current slow price, standard price, and fast price)
@@ -48,6 +61,7 @@ Get the current Bitcoin fear/greed index value
 + `.s ego`: Boosts your ego
 + `.s id`: Get your unique Discord ID number DM'd to you
 + `.s ping`: it will reply to you and show the current response ping.
++ `.s mc <coin>`: Market cap, supply, and volume data for the provided coin. (Search by name, symbol or rank!)
 + `.s docs`: DM's the command list to the caller
 + `.s invite`: Get a pre-permissioned link to add Stonks to your own server!
 + `.s help`: Lists out all commands

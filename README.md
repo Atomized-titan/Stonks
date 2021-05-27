@@ -16,10 +16,11 @@
 ## Main Features:
 + Simple and detailed crypto prices
 + Coin market stats
++ Market cap of every specific coin
 + Coin info and descriptions
 + ETH gas fees tracking
 + Current bitcoin Fear/Greed Index value
-+ ....and more! Join the support server to suggest features you want to see. We are listening!
++ ....and more! Join the support server to suggest features you want to see. I am listening!
 
 <br>
 
