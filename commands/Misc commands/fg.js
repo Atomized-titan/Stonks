@@ -7,7 +7,7 @@ const chalk   = require('chalk');
 class FgCommand extends Command {
     constructor() {
         super('fg', {
-            aliases: ['fg', 'feargreed, fear/greed'],
+            aliases: ['fg', 'feargreed', 'fear/greed'],
             channel: 'guild',
             category: 'Public Commands',
             description: {

@@ -5,7 +5,7 @@ const chalk   = require('chalk');
 
 
 
-class GasCommand extends Command {
+class InviteCommand extends Command {
     constructor() {
         super('invite', {
             aliases: ['invite','summon'],
@@ -26,4 +26,4 @@ class GasCommand extends Command {
 
 }
 
-module.exports = GasCommand;
+module.exports = InviteCommand;

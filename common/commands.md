@@ -59,6 +59,7 @@ Get the current Bitcoin fear/greed index value
 #### Usage: `.s <command>`
 
 + `.s ego`: Boosts your ego
++ `.s trending`: Top-7 trending coins on CoinGecko as searched by users in the last 24 hours
 + `.s id`: Get your unique Discord ID number DM'd to you
 + `.s ping`: it will reply to you and show the current response ping.
 + `.s mc <coin>`: Market cap, supply, and volume data for the provided coin. (Search by name, symbol or rank!)

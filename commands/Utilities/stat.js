@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 
 
 
-class PingCommand extends Command {
+class StatsCommand extends Command {
     constructor() {
         super('stat', {
             aliases: ['stat', 'stats'],
@@ -19,7 +19,7 @@ class PingCommand extends Command {
     async exec(message) {
 
         let messageCount = 0;
-        let referenceTime  = Date.now();
+        let referenceTime = Date.now();
 
         function numberWithCommas(x) {
             x = x.toString();
@@ -28,6 +28,11 @@ class PingCommand extends Command {
                 x = x.replace(pattern, "$1,$2");
             return x;
         }
+        // keep track of messages
+        messageCount = (messageCount + 1) % 10000;
+        if (messageCount === 0) referenceTime = Date.now();
+        //  if(messageCount % 100 === 0){
+        //  console.log(chalk.green("messages so far: " + chalk.cyan(messageCount)));}
 
         console.log(chalk.green('Session stats requested by: ' + chalk.yellow(message.author.username)));
         let users = (message.client.guilds.cache.reduce(function (sum, guild) { return sum + guild.memberCount; }, 0));
@@ -54,5 +59,5 @@ class PingCommand extends Command {
     }
 }
 
-module.exports = PingCommand;
+module.exports = StatsCommand;
 
