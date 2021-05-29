@@ -26,7 +26,7 @@ class McCommand extends Command {
     }
 
     async exec(message) {
-        let success;
+        let success = false;
         // ------------------------------------abbreviateNumber function-----------------------------------------
         // function abbreviateNumber(value) {
         //     var newValue = value;
@@ -83,7 +83,7 @@ class McCommand extends Command {
 
         let cur = '';
         cur = message.content.toLowerCase().replace('.s', '').replace('mc', '').replace('marketcap', '').trimStart().trimEnd();
-        if(cur===''){
+        if (cur === '') {
             message.channel.send('OOPS! add a parameter like \`.s mc ethereum\` or \`.s mc btc\` or a rank number like \`.s mc 7\`')
         }
         console.log(cur)
@@ -91,7 +91,9 @@ class McCommand extends Command {
             message.channel.send('https://youtu.be/otCpCn0l4Wo?t=14'); return;
         }
         // -------------------------------Price function------------------------------------
-
+        if (cur) {
+            console.log(chalk.green("Market prices were requested by " + chalk.yellow(message.author.username) + " for " + chalk.cyan(cur) + " in " + chalk.magentaBright(message.channel.guild.name)));
+        }
         const getBTCPrice = async () => {
 
             const result = await fetch(`https://api.wazirx.com/api/v2/tickers/btcusdt`)
@@ -197,6 +199,7 @@ class McCommand extends Command {
                 // l87 = (percentath || percentath == 0)  ?  `From ATH: \`${parseFloat(percentath).toFixed(2)}%\`\n`                   : `From ATH: n/a\n`;
                 // l88 = (athdate)     ?  `ATH day: \`${athdate}\``                                                 : `ATH day: n/a`;
 
+                
                 //assemble the final message as message embed object
                 let embed = new Discord.MessageEmbed()
                     .addField(name + " (" + symbol + ")", l1 + l2 + l3 + l4 + l5 + l6, false)
@@ -209,11 +212,11 @@ class McCommand extends Command {
                 //send it
                 try {
                     message.channel.send({ embed });
-                    sucess = true;
+                    success = true;
 
                 }
                 catch (rej) {
-                   // message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
+                    // message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
                     console.log(chalk.red('Error sending MC response embed: ' + chalk.cyan(rej)));
                 }
 
@@ -224,7 +227,7 @@ class McCommand extends Command {
 
         }
         if (!success) {
-           // message.channel.send("Failed to find a CoinGecko coin associated with that input.\nTry again with either the full name, or the ticker symbol.");
+            message.channel.send("Failed to find a CoinGecko coin associated with that input.\nTry again with either the full name, or the ticker symbol.");
             console.log(chalk.red(`Failed to find matching coin for input to mc command of: ${chalk.cyan(cur)}`));
         }
 

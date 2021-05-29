@@ -65,6 +65,7 @@ Get the current Bitcoin fear/greed index value
 + `.s mc <coin>`: Market cap, supply, and volume data for the provided coin. (Search by name, symbol or rank!)
 + `.s docs`: DM's the command list to the caller
 + `.s invite`: Get a pre-permissioned link to add Stonks to your own server!
++ `.s prefix`: Customize the prefix for your server (only Admins)
 + `.s help`: Lists out all commands
 + `.s help <command>`: Help on a specific command
 <br>

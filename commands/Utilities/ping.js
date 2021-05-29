@@ -1,4 +1,6 @@
 const { Command } = require('discord-akairo');
+const Discord = require('discord.js')
+
 
 class PingCommand extends Command {
     constructor() {
@@ -8,7 +10,8 @@ class PingCommand extends Command {
             category: 'Utilities',
             description: {
                 content: 'This provides the ping of the bot.'
-            }
+            },
+        
         });
     }
 
@@ -21,7 +24,7 @@ class PingCommand extends Command {
         const reponse = choices[Math.floor(Math.random() * choices.length)];
 
         msg.edit(`${reponse} - **Bot Latency**: \`${latency}ms\`, **API Latency**: \`${Math.round(this.client.ws.ping)}ms\``)
-
+        
     }
 }
 
