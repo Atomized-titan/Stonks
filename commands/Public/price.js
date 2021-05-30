@@ -108,7 +108,7 @@ class PriceCommand extends Command {
         }
         else {
             message.channel.send("Command not recognized. Use `.s help` to see the commands and their usage. \n" +
-                "Keep in mind that commands follow this format: `.s <command> <parameter(s)>`");
+                "Keep in mind that commands follow this format: `.s <command> <parameter(s)>` \n In this case you need to input: `.s <command> <coin><currency>`. \n For Example: `.s p btcinr`");
         }
 
     }

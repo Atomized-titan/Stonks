@@ -16,6 +16,7 @@
 ## Main Features:
 + Simple and detailed crypto prices
 + Coin market stats
++ Static CoinGecko live value charts
 + Market cap of every specific coin
 + Coin info and descriptions
 + ETH gas fees tracking
