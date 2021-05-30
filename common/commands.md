@@ -46,6 +46,20 @@ Examples:
 
 Now you have a lot of data on a single coin!
 
+## CoinGecko Charts:
+### Prefix: `.sc`
+#### Usage: `.sc <coin> <vs_currency> <days> <other options>`
+Stonks supports grabbing chart values from CoinGecko, turning them into charts using quickchart.io and sending them as an image right in the channel where you called for them.
+This command is very versatile as its input is basically only limited by whatever CoinGecko can take. You can put any cryptocurrency listed on CoinGecko.
+<br><br>Providing vs_currency, days and other options are all completely optional and you can call this command with just a coin and it will default to the deafult options (such as vs_currency = USD, days = 14, interval = daily and theme = Dark). <br><br>The following are the options currently tested to be supported by this command (with more on the way):
++ **coin**: Whatever coinss and tickers that CoinGecko supports. **NOTE:** use a full name rather than just the symbol. Like "bitcoin" instead of just  "btc"
++ **vs_currency**: The target currency of market data (usd, eur, jpy, inr, gbp, aud, cad etc.)
++ **days**: Data up to number of days ago. Basically the data range. (eg.1,14,30)
++ **interval**: Data interval. Possible value: daily
++ **other options**: theme(Dark by default. Change it to 'light' if you want to change the label color to white)
+
+Need a visual example? Check out the visual demo down below to see the charts command in action.
+<br>
 
 ### ETH Gas prices:
 #### Usage: `.s gas`
@@ -68,6 +82,7 @@ Get the current Bitcoin fear/greed index value
 + `.s prefix`: Customize the prefix for your server (only Admins)
 + `.s help`: Lists out all commands
 + `.s help <command>`: Help on a specific command
++ `@Stonks`: Mention the bot to get the ping
 <br>
 
 ## More of a visual learner? Check out these demonstration screenshots:
