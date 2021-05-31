@@ -14,8 +14,8 @@ class ChartsCommand extends Command {
             category: 'Public Commands',
             prefix: ['.', '.s'],
             description: {
-                content: 'Gives the Chart representation of the required coin',
-                usage: ', .sc <coin>'
+                content: 'Gives the Chart representation of the required coin. Please use the full name of the coin',
+                usage: ', .sc <coin> <vs_currency> <days range> <theme(dark by default)>'
             },
             args: [
                 {
@@ -40,6 +40,10 @@ class ChartsCommand extends Command {
         console.log(chalk.green("chart requested  " + chalk.yellow(message.author.username) + " in " + chalk.magentaBright(message.channel.guild.name)));
         console.log(args.coin)
         console.log(args.curr)
+        if (!args.coin && !args.curr && !args.days && !args.theme) {
+            message.channel.send("<@!" + message.author.id + ">" + ", Insufficient amount of arguments provided. Check \`.s help chart\` to see how to use the charts command.")
+            return
+        }
 
 
 
@@ -162,6 +166,18 @@ class ChartsCommand extends Command {
         //     };
         //     msg.channel.send({ embed: chartEmbed });
         // }
+
+        const filter = (reaction, user) => {
+            return reaction.emoji.name === '🔎' && user.id === message.author.id;
+        };
+        
+        message.awaitReactions(filter, { max: 4, time: 10000, errors: ['time'] })
+            .then(collected => console.log(collected.size))
+            .catch(collected => {
+                console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+            });
+
+
         var timestamp = Date.now()
         var date = new Date(timestamp);
         var hours = date.getHours();
@@ -183,7 +199,10 @@ class ChartsCommand extends Command {
             try {
                 const msg = await message.channel.send('Fetching Chart...');
                 msg.delete();
-                message.channel.send({embed});
+                message.channel.send({ embed }).then(sentEmbed => {
+                    sentEmbed.react("🔎")
+                })
+                
 
             }
             catch (rej) {

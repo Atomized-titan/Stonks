@@ -20,6 +20,7 @@
 + Market cap of every specific coin
 + Coin info and descriptions
 + ETH gas fees tracking
++ Paginated News system on any given topic
 + Current bitcoin Fear/Greed Index value
 + Customizable Prefix!
 + ....and more! Join the support server to suggest features you want to see. I am listening!

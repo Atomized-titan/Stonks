@@ -106,6 +106,9 @@ dist
 #Quick.db
 json.sqlite
 
+#Api keys
+keys.api
+
 # Other
 package-lock.json
 .vs/

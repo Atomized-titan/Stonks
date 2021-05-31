@@ -82,6 +82,8 @@ Get the current Bitcoin fear/greed index value
 + `.s prefix`: Customize the prefix for your server (only Admins)
 + `.s help`: Lists out all commands
 + `.s help <command>`: Help on a specific command
++ `.s news` / `.s crypto`: News on crypto from last week with complete page system
++ `.s news <topic>`: News on any given topic from last week with complete page system
 + `@Stonks`: Mention the bot to get the ping
 <br>
 
