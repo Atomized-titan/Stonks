@@ -27,7 +27,7 @@ class NewsCommand extends Command {
 
     async exec(message,args) {
 
-        
+        console.log(chalk.green("News was requested by  " + chalk.yellow(message.author.username) + " in " + chalk.magentaBright(message.channel.guild.name)));
             const getNews = async () => {
                 if(!args.search){
                     const result = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=Crypto&lang=en`, {

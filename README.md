@@ -17,6 +17,7 @@
 + Simple and detailed crypto prices
 + Coin market stats
 + Static CoinGecko live value charts
++ Currency conversion
 + Market cap of every specific coin
 + Coin info and descriptions
 + ETH gas fees tracking

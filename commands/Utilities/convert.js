@@ -1,6 +1,10 @@
 const Discord = require('discord.js')
 const { Command } = require('discord-akairo');
 const finnhub = require('finnhub');
+const fetch = require('node-fetch');
+const chalk = require('chalk');
+
+
 
 class ConvertCommand extends Command {
     constructor() {
@@ -28,72 +32,36 @@ class ConvertCommand extends Command {
 
     async exec(message, args) {
 
-        // Finnhub API client
-        const api_key = finnhub.ApiClient.instance.authentications.api_key;
-        api_key.apiKey = 'c2qbcmiad3ickc1lg2h0';
-        const finnhubClient = new finnhub.DefaultApi();
+        console.log(chalk.green("Currency conversion was requested by " + chalk.yellow(message.author.username) + " in " + chalk.magentaBright(message.channel.guild.name)));
+        // ---------------------------------------Number with commas function-------------------------------------------
 
-        const getMC = async () => {
+        function numberWithCommas(x) {
+            x = x.toString();
+            var pattern = /(-?\d+)(\d{3})/;
+            while (pattern.test(x))
+                x = x.replace(pattern, "$1,$2");
+            return x;
+        }
 
-            const result = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y`)
+        let coin1 = args.coin1.toUpperCase()
+        let coin2 = `${args.coin2.toUpperCase()}`
+        let amount = args.amount.replace(/,/g, '');
+        const getConvert = async () => {
+
+            const result = await fetch(`https://exchangerate-api.p.rapidapi.com/rapid/latest/${coin1}`, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "ddc3b4a5b1mshdbfa35734a7c2c3p1b24f1jsn71cff97ae3f2",
+                    "x-rapidapi-host": "exchangerate-api.p.rapidapi.com"
+                }
+            })
             const json = await result.json()
             return json
+
         }
-        let ticker = await getMC();
-
-        let fiatPairs = ["USD", "CAD", "EUR", "AED", "JPY", "CHF", "CNY", "GBP", "AUD", "NOK", "KRW", "JMD", "RUB", "INR"];
-
-        if (!args.coin1 || !args.coin2 || !args.amount || isNaN(args.amount)) {
-            if (args.amount && isNaN(args.amount)) {
-                message.channel.send("Invalid amount entered.");
-            }
-            message.channel.send("**Here's how to use the currency conversion command:**\n " +
-                ":small_blue_diamond: Format: `.s cv <quantity> <FROM coin> to <TO coin>`\n " +
-                ":small_blue_diamond: Examples: `.s cv 20 eth usd`  `.s cv 10 usd cad`\n " +
-                ":small_blue_diamond: Supported cryptos: `All CoinGecko-listed coins`\n " +
-                ":small_blue_diamond: Supported fiat currencies: `" + fiatPairs + "`");
-            return;
-        }
-
-        coin1 = coin1.toUpperCase() + "";
-        coin2 = coin2.toUpperCase() + "";
-        let isForexPairingCoin1 = false;
-        let isForexPairingCoin2 = false;
-        let forexRates = null;
-
-        let amount = args.amount.replace(/,/g, '');
-
-        finnhubClient.forexRates({ "base": "USD" }, async (error, data, response) => {
-            if (error) { console.error(error); return; }
-            forexRates = data.quote;
-
-            if (fiatPairs.includes(coin1)) {
-                isForexPairingCoin1 = true;
-            }
-            if (fiatPairs.includes(coin2)) {
-                isForexPairingCoin2 = true;
-            }
-            console.log(chalk.green("Currency conversion tool requested by " + chalk.yellow(message.author.username) + " for " + chalk.cyan(coin1) + " --> " + chalk.cyan(coin2)));
-            let found1 = (isForexPairingCoin1) ? true : false;
-            let found2 = (isForexPairingCoin2) ? true : false;
-            if (!found1 || !found2) {
-                for (let i = 0, len = ticker.length; i < len; i++) {
-                    if (!found1 && ticker[i].symbol.toUpperCase() == coin1) {
-                        found1 = true;
-                    }
-                    if (!found2 && ticker[i].symbol.toUpperCase() == coin2) {
-                        found2 = true;
-                    }
-                }
-            }
-
-
-
-            
-        })
-
-
-
+        const com = await getConvert()
+        let convertedValue = amount * com.rates[coin2];
+        message.channel.send(`\`${amount} ${coin1} \` ➪ \` ${numberWithCommas(convertedValue.toFixed(2))} ${coin2}\``)
     }
 }
 

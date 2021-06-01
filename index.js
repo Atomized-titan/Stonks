@@ -2,17 +2,35 @@ require('dotenv').config();
 const { Command } = require('discord-akairo');
 const Stonks = require('./core/client.js');
 const client = new Stonks();
+const mongoose = require('mongoose');
+const mongoCurrency = require('discord-mongo-currency');
 
 
+// ---------------------------------------EXPRESS SERVER!!!!!-------------------------------------------------------------------------
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT1 = process.env.PORT1 || 3000
+// const PORT2 = process.env.PORT2
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
+app.listen(PORT1, () => console.log(`App listening at http://localhost:${PORT1}`));
+
+// -------------------------------------------------Mongoose!!--------------------------------------------------------------------------
+
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})
+// .then(()=> app.listen(PORT2, () => console.log(`Mongo Server running on port: ${PORT2}`)))
+// .catch((error) => console.log(error.message));
+
+mongoCurrency.connect(process.env.CONNECTION_URL);
+
+
+
+
+
 
 client.login(process.env.TOKEN);
+
 
 client.on("guildCreate", guild => {
     const channels = guild.channels.cache.filter(channel => channel.type == "text");
@@ -43,10 +61,10 @@ client.on("message", message => {
             title: "F's  in the chat boys",
             description: 'F to pay respect',
             image: {
-              url: 'https://i.kym-cdn.com/photos/images/original/000/858/776/f2e.jpg_large',
+                url: 'https://i.kym-cdn.com/photos/images/original/000/858/776/f2e.jpg_large',
             },
-          };
-          message.channel.send({ embed: respect });
+        };
+        message.channel.send({ embed: respect });
     };
 });
 
