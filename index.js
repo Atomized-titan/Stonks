@@ -9,12 +9,12 @@ const mongoCurrency = require('discord-mongo-currency');
 // ---------------------------------------EXPRESS SERVER!!!!!-------------------------------------------------------------------------
 const express = require('express');
 const app = express();
-const PORT1 = process.env.PORT1 || 3000
+const PORT = process.env.PORT || 3000
 // const PORT2 = process.env.PORT2
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.listen(PORT1, () => console.log(`App listening at http://localhost:${PORT1}`));
+app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
 
 // -------------------------------------------------Mongoose!!--------------------------------------------------------------------------
 
