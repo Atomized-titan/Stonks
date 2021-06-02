@@ -11,7 +11,7 @@ class LeaderBoardCommand extends Command {
             channel: 'guild',
             category: 'Economy',
             description: {
-                content: 'This provides the server leaderboard with the details of how rich everyone is'
+                content: 'This provides the server leaderboard with the details of how rich everyone is (tag the people you wanna compare yourself with)'
             },
 
         });
@@ -24,7 +24,7 @@ class LeaderBoardCommand extends Command {
         if (leaderboard.length < 1) return message.channel.send("Nobody's on the leaderboard.");
         
         
-        const mappedLeaderboard = leaderboard.map(i => `${this.client.users.cache.get(i.userId) ? this.client.users.cache.get(u.userId) : "Nobody"} - ${i.coinsInWallet}`);
+        const mappedLeaderboard = leaderboard.map(i => `${this.client.users.cache.get(i.userId) ? this.client.users.cache.get(i.userId) : "Nobody"} - ${i.coinsInWallet}`);
 
         const embed = new Discord.MessageEmbed()
             .setTitle(`${message.guild.name}\'s Leaderboard`)

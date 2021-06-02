@@ -3,14 +3,14 @@ const mongoCurrency = require('discord-mongo-currency');
 const Discord = require('discord.js')
 
 
-class GiveCommand extends Command {
+class FineCommand extends Command {
     constructor() {
-        super('give', {
-            aliases: ['give'],
+        super('fine', {
+            aliases: ['fine'],
             channel: 'guild',
             category: 'Economy',
             description: {
-                content: 'This command allows the admin to give Stonkcoins to a member'
+                content: 'This provides your balance of Stonkcoins'
             },
             args: [{
 
@@ -31,7 +31,7 @@ class GiveCommand extends Command {
 
 
         const member = message.mentions.users.first();
-        if(!member) return message.channel.send('You need to enter a valid member name to give the coins to! \n Example \`.s give @someone <amount>\`')
+        if(!member) return message.channel.send('You need to enter a valid member name to deduct the coins to! \n Example \`.s fine @someone <amount>\`')
         const memberId = member.id;
         const amount = args.amount
 
@@ -41,13 +41,13 @@ class GiveCommand extends Command {
         if(amount.isNaN) return ;
 
 
-        await mongoCurrency.giveCoins(memberId, message.guild.id, args.amount)
-        message.channel.send(`I just gave ${member} this amount of coin: \`${amount}\``)
+        await mongoCurrency.deductCoins(memberId, message.guild.id, args.amount)
+        message.channel.send(`I just fined ${member} and deducted \`${amount}\` Stonkcoins`)
 
 
 
     }
 }
 
-module.exports = GiveCommand;
+module.exports = FineCommand;
 

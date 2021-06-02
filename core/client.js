@@ -38,6 +38,10 @@ module.exports = class Stonks extends AkairoClient {
     }
 
     async login(token) {
+        this.listenerHandler.setEmitters({
+            commandHandler: this.commandHandler,
+            
+        });
         this.commandHandler.loadAll();
         this.commandHandler.useListenerHandler(this.listenerHandler);
         this.listenerHandler.loadAll();
