@@ -87,8 +87,8 @@ class McCommand extends Command {
             message.channel.send('OOPS! add a parameter like \`.s mc ethereum\` or \`.s mc btc\` or a rank number like \`.s mc 7\`')
         }
         console.log(cur)
-        if (cur === 'hammer') {
-            message.channel.send('https://youtu.be/otCpCn0l4Wo?t=14'); return;
+        if (cur === 'rick') {
+            message.channel.send('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); return;
         }
         // -------------------------------Price function------------------------------------
         if (cur) {

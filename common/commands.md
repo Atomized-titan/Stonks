@@ -72,15 +72,17 @@ Get the current Bitcoin fear/greed index value
 ## Other important commands:
 #### Usage: `.s <command>`
 
-+ `.s ego`: Boosts your ego
 + `.s trending`: Top-7 trending coins on CoinGecko as searched by users in the last 24 hours
-+ `.s id`: Get your unique Discord ID number DM'd to you
-+ `.s cv <amount> <coin1> <coin2>`: Simple currency conversion of X amount of coin1 to coin2
-+ `.s ping`: it will reply to you and show the current response ping.
 + `.s mc <coin>`: Market cap, supply, and volume data for the provided coin. (Search by name, symbol or rank!)
++ `.s cv <amount> <coin1> <coin2>`: Simple currency conversion of X amount of coin1 to coin2
++ `.s id`: Get your unique Discord ID number DM'd to you
++ `.s unix <timstamp>`: Convert UNIX timestamp to date.
++ `.s ego`: Boosts your ego
++ `.s ping`: it will reply to you and show the current response ping.
 + `.s docs`: DM's the command list to the caller
 + `.s invite`: Get a pre-permissioned link to add Stonks to your own server!
 + `.s prefix`: Customize the prefix for your server (only Admins)
++ `.s key`: Generates useless random 16 digit alpha-numeric key.
 + `.s help`: Lists out all commands
 + `.s help <command>`: Help on a specific command
 + `.s news` / `.s crypto`: News on crypto from last week with complete page system

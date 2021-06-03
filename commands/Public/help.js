@@ -79,7 +79,7 @@ class HelpCommand extends Command {
             embed.addField(`__Nexus__`, [
                 `[Invite me](https://discord.com/api/oauth2/authorize?client_id=844842149006802944&permissions=2013592656&redirect_uri=http%3A%2F%2Flocalhost%3A5000&scope=bot) | [Support Server](https://discord.gg/MmApFPjb7K) | [Stonks Github](https://github.com/Atomized-titan/Stonks)`
             ]);
-            embed.addField("Field title", "Your text here: [link](http://example.com)")
+            // embed.addField("Field title", "Your text here: [link](http://example.com)")
             // embed.addField(`\`Notice:\` The \`mc\` command has been fixed! try it`)
 
         }
