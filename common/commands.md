@@ -69,6 +69,16 @@ Shows the current Ethereum gas prices required to send a transaction (shows the 
 #### Usage: `.s fg`
 Get the current Bitcoin fear/greed index value
 
+### Economy system commands:
+### Usage: `.s <command>`
+
++ `.s give <@someone> <amount>`: Gives an amount of Stonkcoins  to a user (Only usable by members with the ADMINISTRATOR permission)
++ `.s fine <@someone> <amount>`: Fines or deducts an amount of Stonkcoins from a user (Only usable by members with the ADMINISTRATOR permission)
++ `.s beg`: User can beg for random amount of Stonkcoins from 1 - 50 (Can be done every 4 hours)
++ `.s balance/bal`: This provides your balance of Stonkcoins.
++ `.s leaderboard/ldr <@someone> <@someone> <@>.....`: Shows a leaderboard of how much money all the mentioned members have in a ranking list
+
+
 ## Other important commands:
 #### Usage: `.s <command>`
 

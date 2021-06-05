@@ -23,6 +23,7 @@
 + ETH gas fees tracking
 + Paginated News system on any given topic
 + Current bitcoin Fear/Greed Index value
++ Functional Economy system for fun
 + Customizable Prefix!
 + ....and more! Join the support server to suggest features you want to see. I am listening!
 

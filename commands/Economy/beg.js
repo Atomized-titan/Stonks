@@ -12,7 +12,7 @@ class BegCommand extends Command {
             cooldown: 14400000,
             category: 'Economy',
             description: {
-                content: 'User can beg for random amount of coins from 1 - 100'
+                content: 'User can beg for random amount of coins from 1 - 50'
             },
             args: [{
 
