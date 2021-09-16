@@ -1,7 +1,7 @@
 {
   "name": "stonks",
   "version": "1.0.1",
-  "description": "A CRUD starter template for a Discord bot built with **discord-akario**. Dependencies may be out of date and will need updated.",
+  "description": "Stonks is a very powerful and easy to use Discord bot that makes for an excellent addition to your Discord crypto community!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,6 +13,7 @@
     "chalk": "^4.1.1",
     "common-tags": "^1.8.0",
     "discord-akairo": "^8.1.0",
+    "discord-buttons": "^3.2.1",
     "discord-mongo-currency": "^1.0.4",
     "discord.js": "^12.3.1",
     "discord.js-pagination": "^1.0.3",

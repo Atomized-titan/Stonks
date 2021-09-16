@@ -1,7 +1,4 @@
-# Stonks
-
-
-[![Discord Bots](https://discordbotslist.co/api/embed/844842149006802944)](https://discordbotslist.co/bots/844842149006802944)
+# Stonks &nbsp; [![Discord Bots](https://top.gg/api/widget/status/844842149006802944.svg)](https://top.gg/bot/844842149006802944) 
 =======
 ### Welcome to the official GitHub repository for the ultimate all-in-one cryptocurrency bot for Discord! All features and code used in the production instance of Stonks is housed and maintained right here in this repo. If you have any questions, issues, suggestions, or just want to chat with me, feel free to join the StonksBot discord server [here](https://discord.gg/2CFWHZGcAz).
 

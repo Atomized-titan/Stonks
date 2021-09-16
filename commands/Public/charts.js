@@ -29,8 +29,11 @@ class ChartsCommand extends Command {
                     id: 'days'
                 },
                 {
+                    id: 'color'
+                },
+                {
                     id: 'theme'
-                }
+                },
             ]
         });
     }
@@ -70,7 +73,7 @@ class ChartsCommand extends Command {
         const chartData = await getPrice();
         console.log(chartData.prices[0][1])
 
-
+        let color = args.color;
         let arrDate = []
         let arrPrice = []
         const chart = new QuickChart();
@@ -93,7 +96,7 @@ class ChartsCommand extends Command {
                         fontColor: 'white',
                         fill: false,
                         backgroundColor: 'transparent',
-                        borderColor: '#EF8E19',
+                        borderColor: color ? color : '#EF8E19',
                         data: arrPrice
                     }]
             },
@@ -126,7 +129,7 @@ class ChartsCommand extends Command {
                             fontColor: 'white',
                             fill: false,
                             backgroundColor: 'transparent',
-                            borderColor: '#EF8E19',
+                            borderColor: color ? color : '#EF8E19',
                             data: arrPrice
                         }]
                 },

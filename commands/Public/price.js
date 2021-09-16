@@ -31,6 +31,7 @@ class PriceCommand extends Command {
             const getPrice = async () => {
                 console.log(args.coin)
                 const result = await fetch(`https://api.wazirx.com/api/v2/tickers/${args.coin}`)
+                // const result = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${args.coin}&vs_currencies=usd`)
                 const json = await result.json()
                 return json
             }
