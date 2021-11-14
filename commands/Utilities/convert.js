@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 const { Command } = require('discord-akairo');
-const finnhub = require('finnhub');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
 

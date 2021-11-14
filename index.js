@@ -4,6 +4,8 @@ const Stonks = require('./core/client.js');
 const client = new Stonks();
 const mongoose = require('mongoose');
 const mongoCurrency = require('discord-mongo-currency');
+// const disbut = require('discord-buttons');
+// disbut(client);
 
 
 // ---------------------------------------EXPRESS SERVER!!!!!-------------------------------------------------------------------------
