@@ -19,7 +19,7 @@ class ClearCommand extends Command {
     }
 
     async exec(message, args) {
-        if(!message.member.hasPermission(`${ownerID}`)) return message.util.reply('Only The Stonks Owners have Access to This Command!')
+        if(!message.member.hasPermission(`${ownerID}`)) return message.reply('Only The Stonks Owners have Access to This Command!')
         //if (!args.code) return message.util.reply('No code provided!');
 
         // let num = 2;

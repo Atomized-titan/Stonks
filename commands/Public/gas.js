@@ -1,10 +1,12 @@
 const Discord = require('discord.js')
 const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
+const axios = require('axios')
 const rp = require('request-promise')
 const chalk = require('chalk');
-const jsdom               = require("jsdom");
-const { JSDOM }           = jsdom;
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const cheerio = require('cheerio');
 
 
 
@@ -74,17 +76,23 @@ class GasCommand extends Command {
         // }
 
         console.log(chalk.green("Etherscan gas requested by " + chalk.yellow(message.author.username)));
-        rp('https://etherscan.io/gastracker')
-            .then(nice => {
+        axios.get('https://etherscan.io/gastracker')
+            .then(res => {
                 //collect the data from fields on the webpage
-                const dom = new JSDOM(nice);
+                const $ = cheerio.load(res.data)
+                let slow_gwei = $("#spanLowPrice").text()
+                let slow_usd_time = $("#divLowPrice > div:nth-child(3)").text()
+                let avg_gwei = $("#spanAvgPrice").text()
+                let avg_usd_time = $("#divAvgPrice > div:nth-child(3)").text()
+                let fast_gwei = $("#spanHighPrice").text()
+                let fast_usd_time = $("#divHighPrice > div:nth-child(3)").text()
                 // console.log(nice)
-                let slow_gwei = dom.window.document.querySelector("#spanLowPrice").textContent;
-                let slow_usd_time = dom.window.document.querySelectorAll("#divLowPrice > div:nth-child(3)")[0].textContent;
-                let avg_gwei = dom.window.document.querySelector("#spanAvgPrice").textContent;
-                let avg_usd_time = dom.window.document.querySelector("#divAvgPrice > div:nth-child(3)").textContent;
-                let fast_gwei = dom.window.document.querySelector("#spanHighPrice").textContent;
-                let fast_usd_time = dom.window.document.querySelector("#divHighPrice > div:nth-child(3)").textContent;
+                // let slow_gwei = dom.window.document.querySelector("#spanLowPrice").textContent;
+                // let slow_usd_time = dom.window.document.querySelectorAll("#divLowPrice > div:nth-child(3)")[0].textContent;
+                // let avg_gwei = dom.window.document.querySelector("#spanAvgPrice").textContent;
+                // let avg_usd_time = dom.window.document.querySelector("#divAvgPrice > div:nth-child(3)").textContent;
+                // let fast_gwei = dom.window.document.querySelector("#spanHighPrice").textContent;
+                // let fast_usd_time = dom.window.document.querySelector("#divHighPrice > div:nth-child(3)").textContent;
 
                 console.log(slow_gwei)
                 console.log(avg_gwei)
