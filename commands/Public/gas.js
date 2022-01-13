@@ -76,8 +76,14 @@ class GasCommand extends Command {
         // }
 
         console.log(chalk.green("Etherscan gas requested by " + chalk.yellow(message.author.username)));
-        axios.get('https://etherscan.io/gastracker')
+        axios.get('https://etherscan.io/gastracker', {
+            headers: {
+                'Content-Type': 'application/json',
+                'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0'
+            }
+        })
             .then(res => {
+                console.log(res.status)
                 //collect the data from fields on the webpage
                 const $ = cheerio.load(res.data)
                 let slow_gwei = $("#spanLowPrice").text()
@@ -115,7 +121,12 @@ class GasCommand extends Command {
                     message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
                     console.log(chalk.red('Error sending eth gas response embed: ' + chalk.cyan(rej)));
                 }
+            }).catch((error) => {
+                console.log(error)
+                console.error({ error });
             });
+
+
 
     }
 
