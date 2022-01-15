@@ -78,7 +78,7 @@ class GasCommand extends Command {
         console.log(chalk.green("Etherscan gas requested by " + chalk.yellow(message.author.username)));
         axios.get('https://etherscan.io/gastracker', {
             headers: {
-                'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0'
+                'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
             }
         })
             .then(res => {
