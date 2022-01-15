@@ -89,7 +89,7 @@ class GasCommand extends Command {
         let slow_gwei = com.result.SafeGasPrice
         let avg_gwei = com.result.ProposeGasPrice
         let fast_gwei = com.result.FastGasPrice
-        let suggest_base_fee = com.result.suggestBaseFee.toFixed(4)
+        let suggest_base_fee = parseFloat(com.result.suggestBaseFee).toFixed(4)
 
         console.log(slow_gwei)
         console.log(avg_gwei)
