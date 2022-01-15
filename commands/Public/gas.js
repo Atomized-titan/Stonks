@@ -76,54 +76,103 @@ class GasCommand extends Command {
         // }
 
         console.log(chalk.green("Etherscan gas requested by " + chalk.yellow(message.author.username)));
-        axios.get('https://etherscan.io/gastracker', {
-            headers: {
-                'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
-            }
-        })
-            .then(res => {
-                console.log(res.status)
-                //collect the data from fields on the webpage
-                const $ = cheerio.load(res.data)
-                let slow_gwei = $("#spanLowPrice").text()
-                let slow_usd_time = $("#divLowPrice > div:nth-child(3)").text()
-                let avg_gwei = $("#spanAvgPrice").text()
-                let avg_usd_time = $("#divAvgPrice > div:nth-child(3)").text()
-                let fast_gwei = $("#spanHighPrice").text()
-                let fast_usd_time = $("#divHighPrice > div:nth-child(3)").text()
-                // console.log(nice)
-                // let slow_gwei = dom.window.document.querySelector("#spanLowPrice").textContent;
-                // let slow_usd_time = dom.window.document.querySelectorAll("#divLowPrice > div:nth-child(3)")[0].textContent;
-                // let avg_gwei = dom.window.document.querySelector("#spanAvgPrice").textContent;
-                // let avg_usd_time = dom.window.document.querySelector("#divAvgPrice > div:nth-child(3)").textContent;
-                // let fast_gwei = dom.window.document.querySelector("#spanHighPrice").textContent;
-                // let fast_usd_time = dom.window.document.querySelector("#divHighPrice > div:nth-child(3)").textContent;
+        const key = process.env.key
 
-                console.log(slow_gwei)
-                console.log(avg_gwei)
-                console.log(fast_gwei)
-                //assemble the final message as message embed object
-                let embed = new Discord.MessageEmbed()
-                    .setTitle(`Ethereum Gas Tracker`)
-                    .addField("Slow:", `${slow_gwei} gwei${slow_usd_time.split("|")[0]}\n${slow_usd_time.split("|")[1]} \u200B\u200B`, true)
-                    .addField("Average:", `${avg_gwei} gwei${avg_usd_time.split("|")[0]}\n${avg_usd_time.split("|")[1]} \u200B\u200B`, true)
-                    .addField("Fast:", `${fast_gwei} gwei${fast_usd_time.split("|")[0]}\n${fast_usd_time.split("|")[1]} \u200B\u200B`, true)
-                    .setColor('#1b51be')
-                    .setThumbnail('https://kittyhelper.co/local/templates/main/images/ETHgas.png')
-                    .setFooter('Powered by Etherscan', 'https://etherscan.io/images/brandassets/etherscan-logo-circle.png');
-                // Send it
-
-                try {
-                    message.channel.send(embed);
-                }
-                catch (rej) {
-                    message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
-                    console.log(chalk.red('Error sending eth gas response embed: ' + chalk.cyan(rej)));
-                }
-            }).catch((error) => {
-                console.log(error)
+        const getPrice = async () => {
             
-            });
+            const result = await fetch(`https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${key}`)
+            // const result = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${args.coin}&vs_currencies=usd`)
+            const json = await result.json()
+            return json
+        }
+        let com = await getPrice()
+        let slow_gwei = com.result.SafeGasPrice
+        let avg_gwei = com.result.ProposeGasPrice
+        let fast_gwei = com.result.FastGasPrice
+        let suggest_base_fee = com.result.suggestBaseFee.toFixed(4)
+
+        console.log(slow_gwei)
+        console.log(avg_gwei)
+        console.log(fast_gwei)
+        
+        let embed = new Discord.MessageEmbed()
+            .setTitle(`Ethereum Gas Tracker`)
+            .addField("Slow:", `${slow_gwei} gwei\u200B\u200B`, true)
+            .addField("Average:", `${avg_gwei} gwei \u200B\u200B`, true)
+            .addField("Fast:", `${fast_gwei} gwei \u200B\u200B`, true)
+            .addField("Suggested Base fee: ", `${suggest_base_fee} gwei \u200B\u200B`, true)
+            .setColor('#1b51be')
+            .setThumbnail('https://kittyhelper.co/local/templates/main/images/ETHgas.png')
+            .setFooter('Powered by Etherscan', 'https://etherscan.io/images/brandassets/etherscan-logo-circle.png');
+        // Send it
+
+        try {
+            message.channel.send(embed);
+        }
+        catch (rej) {
+            message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
+            console.log(chalk.red('Error sending eth gas response embed: ' + chalk.cyan(rej)));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        // axios.get('https://etherscan.io/gastracker', {
+        //     headers: {
+        //         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15'
+        //     }
+        // })
+        //     .then(res => {
+        //         console.log(res.status)
+        //         //collect the data from fields on the webpage
+        //         const $ = cheerio.load(res.data)
+        //         let slow_gwei = $("#spanLowPrice").text()
+        //         let slow_usd_time = $("#divLowPrice > div:nth-child(3)").text()
+        //         let avg_gwei = $("#spanAvgPrice").text()
+        //         let avg_usd_time = $("#divAvgPrice > div:nth-child(3)").text()
+        //         let fast_gwei = $("#spanHighPrice").text()
+        //         let fast_usd_time = $("#divHighPrice > div:nth-child(3)").text()
+        //         // console.log(nice)
+        //         // let slow_gwei = dom.window.document.querySelector("#spanLowPrice").textContent;
+        //         // let slow_usd_time = dom.window.document.querySelectorAll("#divLowPrice > div:nth-child(3)")[0].textContent;
+        //         // let avg_gwei = dom.window.document.querySelector("#spanAvgPrice").textContent;
+        //         // let avg_usd_time = dom.window.document.querySelector("#divAvgPrice > div:nth-child(3)").textContent;
+        //         // let fast_gwei = dom.window.document.querySelector("#spanHighPrice").textContent;
+        //         // let fast_usd_time = dom.window.document.querySelector("#divHighPrice > div:nth-child(3)").textContent;
+
+        //         console.log(slow_gwei)
+        //         console.log(avg_gwei)
+        //         console.log(fast_gwei)
+        //         //assemble the final message as message embed object
+        //         let embed = new Discord.MessageEmbed()
+        //             .setTitle(`Ethereum Gas Tracker`)
+        //             .addField("Slow:", `${slow_gwei} gwei${slow_usd_time.split("|")[0]}\n${slow_usd_time.split("|")[1]} \u200B\u200B`, true)
+        //             .addField("Average:", `${avg_gwei} gwei${avg_usd_time.split("|")[0]}\n${avg_usd_time.split("|")[1]} \u200B\u200B`, true)
+        //             .addField("Fast:", `${fast_gwei} gwei${fast_usd_time.split("|")[0]}\n${fast_usd_time.split("|")[1]} \u200B\u200B`, true)
+        //             .setColor('#1b51be')
+        //             .setThumbnail('https://kittyhelper.co/local/templates/main/images/ETHgas.png')
+        //             .setFooter('Powered by Etherscan', 'https://etherscan.io/images/brandassets/etherscan-logo-circle.png');
+        //         // Send it
+
+        //         try {
+        //             message.channel.send(embed);
+        //         }
+        //         catch (rej) {
+        //             message.channel.send("Sorry, I was unable to process this command. Make sure that I have full send permissions for embeds and messages and then try again!");
+        //             console.log(chalk.red('Error sending eth gas response embed: ' + chalk.cyan(rej)));
+        //         }
+        //     }).catch((error) => {
+        //         console.log(error)
+
+        //     });
 
 
 
